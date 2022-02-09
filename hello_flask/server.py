@@ -15,6 +15,18 @@ def success():
 def hello(name,num):
     return render_template("hello.html", name=name, num=num)
 
+@app.route('/lists')
+def render_lists():
+    #We'll get data from databases soon, but for now we are hard-coding data
+    student_info = [
+       {'name' : 'Michael', 'age' : 35},
+       {'name' : 'John', 'age' : 30 },
+       {'name' : 'Mark', 'age' : 25},
+       {'name' : 'KB', 'age' : 27}
+    ]
+
+    return render_template("lists.html", random_numbers =[3,1,5], students = student_info)
+
 
 if __name__ == "__main__": #ensure file is being run directly and not from a different module
     app.run(debug=True)
