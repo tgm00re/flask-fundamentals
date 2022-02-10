@@ -18,6 +18,38 @@
         <input type="submit" value="create user">
     </form>
 
+    <!-- 
+        Let's say that we have 2 forms (example: one for logging in, one for registration)
+        How will we know which is which?
+        Answer: Create hidden inputs with values related to the form!
+        Example: <input type="hidden" name="which_form" value="login">
+
+        Let's see this in action:
+        (note: this will appear in html, but the route does not exist)
+    --> 
+    <form action="/hidden_forms" method="post">
+        <input type="hidden" name="which_form" value="register">
+        <input type="number" name="number" id="number">
+        <input type="submit" value="Register!">
+    </form>
+
+    <form action="/hidden_forms" method="post">
+        <input type="hidden" name="which_form" value="login">
+        <input type="text" name="text" id="text">
+        <input type="submit" value="Log-in!">
+    </form>
+
+    <!-- In the /hidden_forms route we could do something like to process 
+    appropriately baesd on which form was submitted:
+        if request.form['which_form'] == 'register':
+            pass
+        elif request.form['which_form'] == 'login':
+            pass
+
+            BE AWARE: USERS CAN EASILY CHANGE THE VALUES OF HIDDEN (OR ANY)
+            FORM VALUE. PLEASE BE CAREFUL WITH WHAT YOU PUT IN THESE VALUES!
+-->
+
 
 </body>
 </html>
